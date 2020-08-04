@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.Serialization.Formatters;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace CalcPrimosParalelismoCSharp
@@ -19,7 +16,7 @@ namespace CalcPrimosParalelismoCSharp
             var primos = new List<int>();
             try
             {
-                tamanho = int.Parse(Console.ReadLine());
+                tamanho = 127689;
             }
             catch (FormatException)
             {
@@ -33,7 +30,7 @@ namespace CalcPrimosParalelismoCSharp
             Console.WriteLine("deseja ver a lista de numeros?\n1. Sim\n2.Nao");
             var resposta = 0;
             try{
-                resposta = int.Parse(Console.ReadLine());
+                resposta = 1;
             }
             catch (FormatException)
             {
@@ -62,9 +59,9 @@ namespace CalcPrimosParalelismoCSharp
             var inico = DateTime.Now;
             foreach (var num in numeros)
             {
-                if (eprimo(Numero.Num))
+                if(eprimo(num.Num))
                 {
-                    primos.Add(Numero.Num);
+                    primos.Add(num.Num);
                 }
             }
             var fim = DateTime.Now;
@@ -91,7 +88,7 @@ namespace CalcPrimosParalelismoCSharp
         static List<Numero> CriaListaInt(int tamanho)
         {
             var A = new List<Numero>();
-            Console.WriteLine("criando lista");
+            Console.WriteLine($"criando lista de tamanho {tamanho}");
             for (int i = 0; i < tamanho; i++)
             {
                 A.Add(new Numero(i));
