@@ -16,7 +16,7 @@ namespace CalcPrimosParalelismoCSharp
             var primos = new List<int>();
             try
             {
-                tamanho = 127689;
+                tamanho = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
@@ -30,7 +30,7 @@ namespace CalcPrimosParalelismoCSharp
             Console.WriteLine("deseja ver a lista de numeros?\n1. Sim\n2.Nao");
             var resposta = 0;
             try{
-                resposta = 1;
+                resposta = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
