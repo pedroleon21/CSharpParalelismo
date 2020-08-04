@@ -62,9 +62,9 @@ namespace CalcPrimosParalelismoCSharp
             var inico = DateTime.Now;
             foreach (var num in numeros)
             {
-                if(eprimo(num))
+                if (eprimo(Numero.Num))
                 {
-                    primos.Add(num.Num);
+                    primos.Add(Numero.Num);
                 }
             }
             var fim = DateTime.Now;
@@ -77,7 +77,7 @@ namespace CalcPrimosParalelismoCSharp
             {
                 return Task.Factory.StartNew(() =>
                 {
-                    if (eprimo(Numero))
+                    if (eprimo(Numero.Num))
                     {
                         primos.Add(Numero.Num);
                     }
@@ -109,13 +109,12 @@ namespace CalcPrimosParalelismoCSharp
                 }
             }
         }
-        static bool eprimo(Numero nm)
+        static bool eprimo(int num)
         {
-            int num = nm.Num;
-            if ((num % 2 == 0 && num != 2)|| num < 2) return false;
+			if ((num % 2 == 0 && num != 2)|| num < 2) return false;
             else
             {
-                for(int i =2; i*i <= num; i++)
+                for(int i =2; i < num; i++)
                 {
                     if (num % i == 0) return false;
                 }
